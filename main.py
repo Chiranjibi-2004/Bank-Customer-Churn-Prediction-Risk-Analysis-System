@@ -168,6 +168,17 @@ def main():
     # Train Test Split
     X_train, X_test, y_train, y_test = split_data(X, y)
 
+    # Save Train & Test data 
+    train_data = X_train.copy()
+    train_data['Exited'] = y_train
+    
+    test_data = X_test.copy()
+    test_data['Exited'] = y_test
+
+    train_data.to_csv('./train.csv',index =False)
+    test_data.to_csv('./test.csv',index =False)
+    print('train.csv and test.csv saved successfully . ')
+
     # LOGISTIC REGRESSION
     lr_pipeline = create_pipeline(
         LogisticRegression(random_state=42,max_iter=1000))
