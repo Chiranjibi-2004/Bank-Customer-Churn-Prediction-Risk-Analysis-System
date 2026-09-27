@@ -11,7 +11,7 @@ def Load_New_Data(data_path):
 
 data = Load_New_Data('test.csv')
 
-new_data = data.drop('Exited',axis=1)
+new_data = data.drop('exited',axis=1)
 
 # Predict and probability of data 
 prediction = model.predict(new_data)
@@ -20,8 +20,8 @@ probability = model.predict_proba(new_data)[:,1]
 # print(probability)
 
 # save to a csv file 
-data['Prediction'] = prediction
-data['Probability'] = probability
+data['prediction'] = prediction
+data['probability'] = probability
 
 data.to_csv('Predicted_data.csv',index =False)
 print('File saved as ---- Predicted_data.csv')

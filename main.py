@@ -21,6 +21,7 @@ def clean_data(df):
                     'Surname',
                     'Complain']
     df = df.drop(columns=drop_columns)
+    df.columns = (df.columns.str.strip().str.lower().str.replace(' ','_'))
     return df
 
 # CARD TYPE MAPPING
@@ -29,14 +30,15 @@ def map_card_type(df):
                'GOLD':2,
                'PLATINUM':1,
                'SILVER':0}
-    df['Card Type'] = df['Card Type'].map(mapping)
+    df['card_type'] = df['card_type'].map(mapping)
+    print(df)
     return df
 
 
 # SPLIT FEATURES AND TARGET
 def separate_feature_target(df):
-    X = df.drop('Exited', axis=1)
-    y = df['Exited']
+    X = df.drop('exited', axis=1)
+    y = df['exited']
     return X, y
 
 # TRAIN TEST SPLIT
@@ -51,18 +53,18 @@ def split_data(X, y):
 
 # CREATE PREPROCESSOR
 def create_preprocessor():
-    numeric_features = ['CreditScore',
-                        'Age',
-                        'Tenure',
-                        'Balance',
-                        'NumOfProducts',
-                        'EstimatedSalary',
-                        'Satisfaction Score',
-                        'Card Type',
-                        'Point Earned']
+    numeric_features = ['creditscore',
+                        'age',
+                        'tenure',
+                        'balance',
+                        'numofproducts',
+                        'estimatedsalary',
+                        'satisfaction_score',
+                        'card_type',
+                        'point_earned']
     
-    categorical_features = ['Gender',
-                            'Geography']
+    categorical_features = ['gender',
+                            'geography']
 
     # Numeric Pipeline
     numeric_transformer = Pipeline(steps=[
@@ -170,62 +172,62 @@ def main():
 
     # Save Train & Test data 
     train_data = X_train.copy()
-    train_data['Exited'] = y_train
+    train_data['exited'] = y_train
     
     test_data = X_test.copy()
-    test_data['Exited'] = y_test
+    test_data['exited'] = y_test
 
-    train_data.to_csv('./train.csv',index =False)
-    test_data.to_csv('./test.csv',index =False)
-    print('train.csv and test.csv saved successfully . ')
+    # train_data.to_csv('./train.csv',index =False)
+    # test_data.to_csv('./test.csv',index =False)
+    # print('train.csv and test.csv saved successfully . ')
 
-    # LOGISTIC REGRESSION
-    lr_pipeline = create_pipeline(
-        LogisticRegression(random_state=42,max_iter=1000))
-    evaluate_model(lr_pipeline,
-                   X_train,
-                   X_test,
-                   y_train,
-                   y_test,
-                   "LOGISTIC REGRESSION RESULTS")
+    # # LOGISTIC REGRESSION
+    # lr_pipeline = create_pipeline(
+    #     LogisticRegression(random_state=42,max_iter=1000))
+    # evaluate_model(lr_pipeline,
+    #                X_train,
+    #                X_test,
+    #                y_train,
+    #                y_test,
+    #                "LOGISTIC REGRESSION RESULTS")
 
-    # DECISION TREE
-    dt_pipeline = create_pipeline(
-        DecisionTreeClassifier(random_state=42,
-                               max_depth=5,
-                               min_samples_leaf=10))
-    evaluate_model(dt_pipeline,
-                   X_train,
-                   X_test,
-                   y_train,
-                   y_test,
-                   "DECISION TREE RESULTS")
+    # # DECISION TREE
+    # dt_pipeline = create_pipeline(
+    #     DecisionTreeClassifier(random_state=42,
+    #                            max_depth=5,
+    #                            min_samples_leaf=10))
+    # evaluate_model(dt_pipeline,
+    #                X_train,
+    #                X_test,
+    #                y_train,
+    #                y_test,
+    #                "DECISION TREE RESULTS")
 
-    # RANDOM FOREST
-    rf_pipeline = create_pipeline(
-        RandomForestClassifier(random_state=42,class_weight='balanced'))
-    evaluate_model(rf_pipeline,
-                   X_train,
-                   X_test,
-                   y_train,
-                   y_test,
-                   "RANDOM FOREST RESULTS")
+    # # RANDOM FOREST
+    # rf_pipeline = create_pipeline(
+    #     RandomForestClassifier(random_state=42,class_weight='balanced'))
+    # evaluate_model(rf_pipeline,
+    #                X_train,
+    #                X_test,
+    #                y_train,
+    #                y_test,
+    #                "RANDOM FOREST RESULTS")
 
-    # GRID SEARCH RANDOM FOREST
-    print("\nTUNING RANDOM FOREST...\n")
-    best_rf_model = tune_random_forest(X_train, y_train)
-    evaluate_model(best_rf_model,
-                   X_train,
-                   X_test,
-                   y_train,
-                   y_test,
-                   "OPTIMIZED RANDOM FOREST RESULTS")
+    # # GRID SEARCH RANDOM FOREST
+    # print("\nTUNING RANDOM FOREST...\n")
+    # best_rf_model = tune_random_forest(X_train, y_train)
+    # evaluate_model(best_rf_model,
+    #                X_train,
+    #                X_test,
+    #                y_train,
+    #                y_test,
+    #                "OPTIMIZED RANDOM FOREST RESULTS")
     
 
 
-    # SAVE MODEL
-    import joblib
-    joblib.dump(best_rf_model, 'churn_model.pkl')
+    # # SAVE MODEL
+    # import joblib
+    # joblib.dump(best_rf_model, 'churn_model.pkl')
 
 
 if __name__ == "__main__":

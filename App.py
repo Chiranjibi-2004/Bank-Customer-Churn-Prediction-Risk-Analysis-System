@@ -72,19 +72,19 @@ if mode == 'Single Customer':
 
     # Map input data to our training columns
     input_data = pd.DataFrame([{
-        'CreditScore':creditscore,
-        'Geography':geography,
-        'Gender':gender,
-        'Age':age,
-        'Tenure':tenure,
-        'Balance':balance,
-        'NumOfProducts':num_products,
-        'HasCard':1 if has_card else 0,
-        'IsActiveMember':1 if is_active_member else 0,
-        'EstimatedSalary':estimeted_salary,
-        'Satisfaction Score':satisfaction_score,
-        'Card Type':card_mapping[card_type],
-        'Point Earned':point_earned
+        'creditscore':creditscore,
+        'geography':geography,
+        'gender':gender,
+        'age':age,
+        'tenure':tenure,
+        'balance':balance,
+        'numofproducts':num_products,
+        'hascrcard':1 if has_card else 0,
+        'isactivemember':1 if is_active_member else 0,
+        'estimatedsalary':estimeted_salary,
+        'satisfaction_score':satisfaction_score,
+        'card_type':card_mapping[card_type],
+        'point_earned':point_earned
     }])
 
     st.markdown('---')
