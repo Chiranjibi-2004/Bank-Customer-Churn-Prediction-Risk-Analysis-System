@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Customer Churn Prediction</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Background -->
+
+    <div class="background background-one"></div>
+    <div class="background background-two"></div>
+
+
+    <main class="container">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="hero">
+
+            <div class="logo">
+
+                <span>AI</span>
+
+            </div>
+
+
+            <div class="hero-text">
+
+                <div class="eyebrow">
+                    MACHINE LEARNING APPLICATION
+                </div>
+
+                <h1>
+                    Customer Churn Prediction
+                </h1>
+
+                <p>
+                    Predict customer churn risk using
+                    machine learning probability analysis.
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             MAIN DASHBOARD
+        ====================================== -->
+
+        <section class="dashboard">
+
+
+            <!-- =================================
+                 INPUT FORM
+            ================================== -->
+
+            <div class="card form-card">
+
+
+                <!-- Form Header -->
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            Customer Information
+                        </h2>
+
+                        <p>
+                            Enter the customer's details
+                            to generate a prediction.
+                        </p>
+
+                    </div>
+
+
+                    <div class="api-status">
+
+                        <span class="status-dot"></span>
+
+                        API Ready
+
+                    </div>
+
+                </div>
+
+
+
+                <form id="predictionForm">
+
+
+                    <!-- =================================
+                         SECTION 01
+                    ================================== -->
+
+                    <div class="section-heading">
+
+                        <div class="section-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Customer Profile
+                            </h3>
+
+                            <p>
+                                Basic customer information
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <!-- Credit Score -->
+
+                        <div class="input-group">
+
+                            <label for="creditscore">
+                                Credit Score
+                            </label>
+
+                            <input
+                                type="number"
+                                id="creditscore"
+                                min="0"
+                                max="1000"
+                                value="650"
+                                required
+                            >
+
+                            <small>
+                                Range: 0 – 1000
+                            </small>
+
+                        </div>
+
+
+                        <!-- Age -->
+
+                        <div class="input-group">
+
+                            <label for="age">
+                                Age
+                            </label>
+
+                            <input
+                                type="number"
+                                id="age"
+                                min="18"
+                                max="100"
+                                value="35"
+                                required
+                            >
+
+                            <small>
+                                Range: 18 – 100
+                            </small>
+
+                        </div>
+
+
+                        <!-- Tenure -->
+
+                        <div class="input-group">
+
+                            <label for="tenure">
+                                Tenure
+                            </label>
+
+                            <input
+                                type="number"
+                                id="tenure"
+                                min="0"
+                                max="10"
+                                value="5"
+                                required
+                            >
+
+                            <small>
+                                Customer tenure in years
+                            </small>
+
+                        </div>
+
+
+                        <!-- Balance -->
+
+                        <div class="input-group">
+
+                            <label for="balance">
+                                Account Balance
+                            </label>
+
+                            <input
+                                type="number"
+                                id="balance"
+                                min="0"
+                                step="0.01"
+                                value="50000"
+                                required
+                            >
+
+                            <small>
+                                Must be 0 or greater
+                            </small>
+
+                        </div>
+
+
+                        <!-- Products -->
+
+                        <div class="input-group">
+
+                            <label for="numofproducts">
+                                Number of Products
+                            </label>
+
+                            <input
+                                type="number"
+                                id="numofproducts"
+                                min="0"
+                                max="5"
+                                value="2"
+                                required
+                            >
+
+                            <small>
+                                Range: 0 – 5
+                            </small>
+
+                        </div>
+
+
+                        <!-- Salary -->
+
+                        <div class="input-group">
+
+                            <label for="estimatedsalary">
+                                Estimated Salary
+                            </label>
+
+                            <input
+                                type="number"
+                                id="estimatedsalary"
+                                min="0"
+                                max="75000"
+                                step="0.01"
+                                value="50000"
+                                required
+                            >
+
+                            <small>
+                                Maximum: 75,000
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================
+                         SECTION 02
+                    ================================== -->
+
+                    <div class="section-heading">
+
+                        <div class="section-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Membership & Activity
+                            </h3>
+
+                            <p>
+                                Account activity information
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <!-- Credit Card -->
+
+                        <div class="input-group">
+
+                            <label for="hascrcard">
+                                Has Credit Card
+                            </label>
+
+                            <select
+                                id="hascrcard"
+                                required
+                            >
+
+                                <option value="1">
+                                    Yes
+                                </option>
+
+                                <option value="0">
+                                    No
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Active Member -->
+
+                        <div class="input-group">
+
+                            <label for="isactivemember">
+                                Active Member
+                            </label>
+
+                            <select
+                                id="isactivemember"
+                                required
+                            >
+
+                                <option value="1">
+                                    Yes
+                                </option>
+
+                                <option value="0">
+                                    No
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Satisfaction -->
+
+                        <div class="input-group">
+
+                            <label for="satisfaction_score">
+                                Satisfaction Score
+                            </label>
+
+                            <select
+                                id="satisfaction_score"
+                                required
+                            >
+
+                                <option value="1">
+                                    1 — Very Low
+                                </option>
+
+                                <option value="2">
+                                    2 — Low
+                                </option>
+
+                                <option
+                                    value="3"
+                                    selected
+                                >
+                                    3 — Neutral
+                                </option>
+
+                                <option value="4">
+                                    4 — High
+                                </option>
+
+                                <option value="5">
+                                    5 — Very High
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Points -->
+
+                        <div class="input-group">
+
+                            <label for="point_earned">
+                                Points Earned
+                            </label>
+
+                            <input
+                                type="number"
+                                id="point_earned"
+                                min="0"
+                                max="1000"
+                                value="500"
+                                required
+                            >
+
+                            <small>
+                                Range: 0 – 1000
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================
+                         SECTION 03
+                    ================================== -->
+
+                    <div class="section-heading">
+
+                        <div class="section-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Customer Classification
+                            </h3>
+
+                            <p>
+                                Demographic and account details
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <!-- Card Type -->
+
+                        <div class="input-group">
+
+                            <label for="card_type">
+                                Card Type
+                            </label>
+
+                            <select
+                                id="card_type"
+                                required
+                            >
+
+                                <option value="DIAMOND">
+                                    Diamond
+                                </option>
+
+                                <option value="GOLD">
+                                    Gold
+                                </option>
+
+                                <option value="PLATINUM">
+                                    Platinum
+                                </option>
+
+                                <option
+                                    value="SILVER"
+                                    selected
+                                >
+                                    Silver
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Gender -->
+
+                        <div class="input-group">
+
+                            <label for="gender">
+                                Gender
+                            </label>
+
+                            <select
+                                id="gender"
+                                required
+                            >
+
+                                <option value="Male">
+                                    Male
+                                </option>
+
+                                <option value="Female">
+                                    Female
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Geography -->
+
+                        <div class="input-group">
+
+                            <label for="geography">
+                                Geography
+                            </label>
+
+                            <select
+                                id="geography"
+                                required
+                            >
+
+                                <option value="France">
+                                    France
+                                </option>
+
+                                <option value="Germany">
+                                    Germany
+                                </option>
+
+                                <option value="Spain">
+                                    Spain
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Error -->
+
+                    <div
+                        id="errorMessage"
+                        class="error-message"
+                    ></div>
+
+
+
+                    <!-- Buttons -->
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            id="resetButton"
+                            class="reset-button"
+                        >
+                            Reset
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            id="predictButton"
+                            class="predict-button"
+                        >
+
+                            <span id="buttonText">
+                                Predict Churn Risk
+                            </span>
+
+                            <span
+                                id="spinner"
+                                class="spinner"
+                            ></span>
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+            <!-- =================================
+                 RESULT CARD
+            ================================== -->
+
+            <aside
+                class="card result-card"
+                id="resultCard"
+            >
+
+
+                <!-- Result Header -->
+
+                <div class="result-header">
+
+                    <div class="result-title">
+
+                        <div class="result-icon">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Prediction Result
+                            </h2>
+
+                            <p>
+                                AI-powered risk analysis
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="model-badge">
+                        ML MODEL
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     INITIAL RESULT
+                ================================== -->
+
+                <div
+                    id="initialResult"
+                    class="initial-result"
+                >
+
+                    <div class="initial-icon">
+                        ◉
+                    </div>
+
+                    <h3>
+                        Ready for Analysis
+                    </h3>
+
+                    <p>
+                        Complete the customer information
+                        and run the prediction to see the
+                        churn probability.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================
+                     ACTUAL RESULT
+                ================================== -->
+
+                <div
+                    id="resultDetails"
+                    class="result-details hidden"
+                >
+
+
+                    <!-- Risk Score -->
+
+                    <div class="risk-score-section">
+
+
+                        <div class="risk-ring">
+
+                            <svg
+                                viewBox="0 0 120 120"
+                                class="risk-svg"
+                            >
+
+                                <circle
+                                    cx="60"
+                                    cy="60"
+                                    r="50"
+                                    class="ring-bg"
+                                ></circle>
+
+                                <circle
+                                    cx="60"
+                                    cy="60"
+                                    r="50"
+                                    id="riskCircle"
+                                    class="ring-progress"
+                                ></circle>
+
+                            </svg>
+
+
+                            <div class="risk-center">
+
+                                <strong
+                                    id="riskPercentage"
+                                >
+                                    0%
+                                </strong>
+
+                                <span>
+                                    RISK SCORE
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="risk-info">
+
+                            <span class="result-label">
+                                CUSTOMER STATUS
+                            </span>
+
+                            <h3 id="riskTitle">
+                                Low Risk
+                            </h3>
+
+                            <div
+                                id="riskBadge"
+                                class="risk-badge"
+                            >
+                                ✓ Customer likely to stay
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Probability Comparison -->
+
+                    <div class="probability-section">
+
+                        <div class="probability-heading">
+
+                            <span>
+                                Probability Analysis
+                            </span>
+
+                            <small>
+                                Model confidence
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- Churn -->
+
+                        <div class="probability-row">
+
+                            <div class="probability-row-top">
+
+                                <div class="probability-name">
+
+                                    <span
+                                        class="probability-dot churn-dot"
+                                    ></span>
+
+                                    <span>
+                                        Churn
+                                    </span>
+
+                                </div>
+
+                                <strong
+                                    id="churnPercentage"
+                                >
+                                    0.00%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="progress-track">
+
+                                <div
+                                    id="churnBar"
+                                    class="progress-fill churn-fill"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Stay -->
+
+                        <div class="probability-row">
+
+                            <div class="probability-row-top">
+
+                                <div class="probability-name">
+
+                                    <span
+                                        class="probability-dot stay-dot"
+                                    ></span>
+
+                                    <span>
+                                        Stay
+                                    </span>
+
+                                </div>
+
+                                <strong
+                                    id="stayPercentage"
+                                >
+                                    0.00%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="progress-track">
+
+                                <div
+                                    id="stayBar"
+                                    class="progress-fill stay-fill"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Business Interpretation -->
+
+                    <div class="analysis-box">
+
+                        <div class="analysis-icon">
+                            💡
+                        </div>
+
+                        <div>
+
+                            <span class="analysis-label">
+                                MODEL INTERPRETATION
+                            </span>
+
+                            <p id="analysisText">
+                                Model interpretation
+                                will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Prediction Information -->
+
+                    <div class="prediction-meta">
+
+
+                        <div>
+
+                            <span>
+                                Prediction
+                            </span>
+
+                            <strong
+                                id="predictionValue"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Churn
+                            </span>
+
+                            <strong
+                                id="metaChurn"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Stay
+                            </span>
+
+                            <strong
+                                id="metaStay"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Result Footer -->
+
+                <div class="result-footer">
+
+                    <div>
+
+                        <span>
+                            Endpoint
+                        </span>
+
+                        <strong>
+                            POST /predict
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Status
+                        </span>
+
+                        <strong class="api-ready">
+                            ● Ready
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+
+
+        <!-- Footer -->
+
+        <footer>
+
+            Customer Churn Prediction
+
+            <span>•</span>
+
+            FastAPI + Machine Learning
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
