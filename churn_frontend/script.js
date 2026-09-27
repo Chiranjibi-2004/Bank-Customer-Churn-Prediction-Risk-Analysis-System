@@ -26,7 +26,7 @@
 ============================================= */
 
 const API_URL =
-    "http://127.0.0.1:8000/predict";
+    "https://bank-customer-churn-prediction-risk.onrender.com";
 
 
 
