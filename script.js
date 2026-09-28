@@ -4,7 +4,7 @@
 =================================================
 
     Backend:
-    http://127.0.0.1:8000
+    https://bank-customer-churn-prediction-risk.onrender.com
 
     Endpoint:
     POST /predict
@@ -26,7 +26,7 @@
 ============================================= */
 
 const API_URL =
-    "https://bank-customer-churn-prediction-risk.onrender.com";
+    "https://bank-customer-churn-prediction-risk.onrender.com/predict";
 
 
 
