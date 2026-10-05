@@ -2,7 +2,11 @@
 
 An end-to-end Machine Learning project that predicts whether a bank customer is likely to leave the bank (churn) based on customer demographics, account information, and behavioral attributes.
 
-The project covers the complete machine learning workflow including data preprocessing, exploratory data analysis (EDA), feature engineering, model development, hyperparameter tuning, model evaluation, batch prediction, and deployment through a Streamlit web application.
+The project covers the complete machine learning workflow including data preprocessing, exploratory data analysis (EDA), feature engineering, model development, hyperparameter tuning, model evaluation, batch prediction, and deployment through a Streamlit and a web application.
+
+
+![Alt Text](Dashboard.png)
+UI of dashboard link : https://bank-customer-churn-prediction-risk-ctej.onrender.com
 
 ---
 
@@ -20,7 +24,7 @@ The objective of this project is to identify customers who are likely to leave t
 * Identify key factors contributing to customer attrition.
 * Build and compare multiple machine learning models.
 * Optimize model performance using hyperparameter tuning.
-* Deploy the final model through a Streamlit application.
+* Deploy the final model through a Streamlit and web application.
 * Enable real-time churn prediction.
 
 ---
@@ -197,9 +201,9 @@ For customer churn prediction, identifying customers who are likely to leave is 
 
 ## 🚀 Deployment
 
-The final optimized model was deployed using Streamlit for real-time predictions.
+The final optimized model was deployed using Streamlit  and a web application for real-time predictions.
 
-### Features
+### Features for Streamlit
 
 * User-friendly interface
 * Real-time single/batch churn prediction
@@ -207,6 +211,13 @@ The final optimized model was deployed using Streamlit for real-time predictions
 * Batch prediction upload 'CSV' file 
 * Model loaded from serialized file (`churn_model.pkl`)
 
+
+### Features for Wab application 
+
+* Clear and understanding UI interface
+* Real-time prediction
+* Beautiful prediction dashboard result 
+* Showing probability analysis report and remarks of churning
 ---
 
 ## 📂 Project Structure
@@ -233,6 +244,9 @@ Bank-Customer-Churn-Prediction/
 ## 🛠️ Tech Stack
 
 * Python
+* Html
+* Java script
+* css
 * Pandas
 * NumPy
 * Matplotlib
@@ -240,6 +254,9 @@ Bank-Customer-Churn-Prediction/
 * Scikit-Learn
 * Joblib
 * Streamlit
+* fastapi
+* pydantic
+* uvicorn
 
 ---
 
@@ -260,8 +277,6 @@ This solution helps banks:
 * XGBoost and LightGBM implementation.
 * Explainable AI using SHAP.
 * Automated model retraining.
-* Cloud deployment using AWS or Azure.
-* Real-time prediction APIs.
 
 ---
 
