@@ -5,9 +5,8 @@ An end-to-end Machine Learning project that predicts whether a bank customer is 
 The project covers the complete machine learning workflow including data preprocessing, exploratory data analysis (EDA), feature engineering, model development, hyperparameter tuning, model evaluation, batch prediction, and deployment through a Streamlit and a web application.
 
 
-![Alt Text](Dashboard.png)
 UI of dashboard link : https://bank-customer-churn-prediction-risk-ctej.onrender.com
-
+![Alt Text](Dashboard.png)
 ---
 
 ## 📌 Business Problem
